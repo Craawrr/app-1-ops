@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     parameters {
         booleanParam(
             name: 'DEPLOY',
@@ -12,8 +16,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/PeterPorzuczek/TimeRiddle.git',
-                    branch: 'main'
+                git branch: 'main',
+                    url: 'https://github.com/PeterPorzuczek/TimeRiddle.git'
             }
         }
 
