@@ -20,5 +20,5 @@ $response = Invoke-RestMethod `
     -TimeoutSec 20
 
 Write-Host "Gra: $($gra.nazwa)"
-Write-Host "Ocena graczy: $($response.query_summary.review_score_desc)"
-Write-Host "Liczba recenzji: $($response.query_summary.total_reviews)"
+Write-Host "Ocena graczy: $($response.response.query_summary.review_score_desc)"
+Write-Host "Liczba recenzji: $($response.response.query_summary.total_reviews)"
