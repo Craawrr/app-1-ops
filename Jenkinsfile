@@ -10,6 +10,13 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/PeterPorzuczek/TimeRiddle.git',
+                    branch: 'main'
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building application...'
@@ -24,9 +31,7 @@ pipeline {
 
         stage('Deploy') {
             when {
-                expression {
-                    return params.DEPLOY
-                }
+                expression { return params.DEPLOY }
             }
             steps {
                 echo 'Deploying application...'
