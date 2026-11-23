@@ -16,8 +16,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                deleteDir()
+
                 git branch: 'main',
                     url: 'https://github.com/PeterPorzuczek/TimeRiddle.git'
+
+                bat 'dir'
             }
         }
 
@@ -35,7 +39,7 @@ pipeline {
 
         stage('Deploy') {
             when {
-                expression { return params.DEPLOY }
+                expression { params.DEPLOY }
             }
             steps {
                 echo 'Deploying application...'
