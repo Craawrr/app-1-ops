@@ -13,5 +13,11 @@ pipeline {
                 powershell './steam/nowosci.ps1'
             }
         }
+
+        stage('Opinie graczy') {
+            steps {
+                powershell './steam/opinie.ps1'
+            }
+        }
     }
 }
